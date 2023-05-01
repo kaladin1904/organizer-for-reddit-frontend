@@ -8,16 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./get-saved.component.css']
 })
 export class GetSavedComponent implements OnInit {
-
-  retrievedId  = -50;
-
-  constructor(private route: ActivatedRoute,
-    private router: Router, private getSavedService: GetSavedService) { }
-
+  
   ngOnInit(): void {
-    this.getSavedService.executeGetSavedPostsService().subscribe((result) => {
-      this.retrievedId = result.id;
-    });
   }
-
 }
