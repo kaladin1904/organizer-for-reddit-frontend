@@ -1,1 +1,26 @@
-<p>test works!</p>
+<mat-toolbar style="background-color: paleturquoise;">
+  <mat-toolbar-row>
+      <span>Organizer For Reddit</span>
+      <i style="padding-left: 10px;" class="bi bi-reddit"></i>
+      <span class="spacer"></span>
+      <a mat-button routerLink="/">Logout</a>
+  </mat-toolbar-row> 
+</mat-toolbar>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10">
+      <div style="margin-top: 15px;" layout="row" layout-align="start center" flex>
+        <div class="input-group">
+            <input type="text" class="form-control" [(ngModel)]="searchText" 
+              placeholder="Search by Author or Title" aria-describedby="addon">
+            <span class="input-group-addon" id="addon"><i class="fa fa-search"></i></span>
+            <button mat-raised-button class="button" (click)="filter()">Search</button>
+        </div>
+    </div>
+      
+      <app-post-tiles [data]="filteredPosts"></app-post-tiles>
+    </div>
+  </div>
+</div>
+

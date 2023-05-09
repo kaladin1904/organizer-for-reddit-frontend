@@ -3,31 +3,39 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { GetSavedComponent } from './get-saved/get-saved.component';
 import { HttpClientModule } from '@angular/common/http';
 import { GetSavedService } from './service/get-saved.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ShowSavedComponent } from './show-saved/show-saved.component';
 import { HomePageComponent } from './home-page/home-page.component';
-import {MatButtonModule} from '@angular/material/button';
-import {MatToolbarModule} from '@angular/material/toolbar';
+import { LoginComponent } from './login/login.component'  
+import { MyMaterialModule } from './material.module';
+import { PostTilesComponent } from './post-tiles/post-tiles.component';
+import { RegisterComponent } from './register/register.component';
+import { ValidationService } from './validation.service';
+import { VoteButtonComponent } from './vote-button/vote-button.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    GetSavedComponent,
     ShowSavedComponent,
-    HomePageComponent
+    HomePageComponent,
+    LoginComponent,
+    PostTilesComponent,
+    RegisterComponent,
+    VoteButtonComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatButtonModule,
-    MatToolbarModule
+    MyMaterialModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [GetSavedService],
+  providers: [GetSavedService,ValidationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
