@@ -3,7 +3,7 @@
       <span>Organizer For Reddit</span>
       <i style="padding-left: 10px;" class="bi bi-reddit"></i>
       <span class="spacer"></span>
-      <a mat-button routerLink="/">Logout</a>
+      <a mat-button (click)="logout()" routerLink="/">Logout</a>
   </mat-toolbar-row> 
 </mat-toolbar>
 
@@ -20,6 +20,9 @@
     </div>
       
       <app-post-tiles [data]="filteredPosts"></app-post-tiles>
+      <div style="justify-content: center;width: 100%;" *ngIf="!dataLoaded">
+        There are no saved posts to display
+      </div>
     </div>
   </div>
 </div>

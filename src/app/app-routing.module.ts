@@ -4,12 +4,13 @@ import { ShowSavedComponent } from './show-saved/show-saved.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { AuthGuardGuard } from './auth-guard.guard';
 
 const routes: Routes = [
   {path: '', component: HomePageComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'saved', component: ShowSavedComponent}
+  {path: 'saved', component: ShowSavedComponent, canActivate: [AuthGuardGuard]}
 ];
 
 @NgModule({

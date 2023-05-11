@@ -14,6 +14,7 @@ export class ShowSavedComponent implements OnInit {
   private username : any = "";
   searchText: string = "";
   public filteredPosts: SavedPost[] = [];
+  public dataLoaded: boolean = false;
 
   public allSavedPosts: SavedPost[] = [];
   displayedColumns: string[] = ['user','subreddit-name', 'title','upvotes', 'awards'];
@@ -31,6 +32,7 @@ export class ShowSavedComponent implements OnInit {
     }
   
   ngOnInit(): void {
+    this.dataLoaded = false;
     const isRegisteredUser : boolean = this.readQueryString();
     if(isRegisteredUser) {
       this.getSavedService.getAccessToken("randomState", "existingUser", this.username).subscribe(result => {
@@ -40,6 +42,7 @@ export class ShowSavedComponent implements OnInit {
             post.permalink = "https://www.reddit.com" + post.permalink;
           });
           this.filteredPosts = this.allSavedPosts;
+          this.dataLoaded = true;
         });
       });
     } else {
@@ -52,7 +55,9 @@ export class ShowSavedComponent implements OnInit {
           this.allSavedPosts.forEach(post => {
             post.permalink = "https://www.reddit.com" + post.permalink;
           });
+          console.log("total posts = " + this.allSavedPosts.length);
           this.filteredPosts = this.allSavedPosts; 
+          this.dataLoaded = true;
         });
       });
     }
@@ -69,6 +74,10 @@ export class ShowSavedComponent implements OnInit {
     } else {
       return false;
     }
+ }
+
+ public logout(): void {
+  this.getSavedService.logout(this.username).subscribe((result) => console.log(result));
  }
 
 }

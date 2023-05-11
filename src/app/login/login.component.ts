@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
     this.getSavedService.checkLogin(this.username, this.password).subscribe(result => {
       if(result.username == this.username) {
         this.loginValid = true;
+        localStorage.setItem('username', this.username);
         //send username as query params
         this.router.navigate(['/saved'], {
           queryParams: {
