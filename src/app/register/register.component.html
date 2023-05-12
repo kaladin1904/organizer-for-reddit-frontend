@@ -1,7 +1,7 @@
 <mat-card>
     <mat-card-content>
       <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
-        <h2>Creat User</h2>
+        <h2>Create User</h2>
         <mat-error *ngIf="invalidUser">
           The username already exists
         </mat-error>

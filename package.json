@@ -3,11 +3,10 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "heroku-postbuild": "ng build --configuration production && npm install -g http-server-spa",
+    "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "start": "http-server-spa dist/angular-reddit-clone index.html $PORT"
+    "test": "ng test"
   },
   "private": true,
   "dependencies": {

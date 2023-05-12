@@ -26,8 +26,8 @@ export class ShowSavedComponent implements OnInit {
       const filterValue = this.searchText.toLowerCase();
   
       this.filteredPosts = this.allSavedPosts.filter(savedPost => 
-        savedPost.subreddit_name_prefixed.toLowerCase().includes(filterValue) 
-        || savedPost.title.toLowerCase().includes(filterValue));
+        savedPost.subreddit_name_prefixed?.toLowerCase().includes(filterValue) 
+        || savedPost.title?.toLowerCase().includes(filterValue));
 
     }
   
